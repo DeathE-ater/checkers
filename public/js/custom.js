@@ -1,18 +1,4 @@
 
-function openTab(ctrl, tabName){
-    document.getElementById("payments-menu").classList.remove("w3-blue");
-    document.getElementById("buy-currency-menu").classList.remove("w3-blue");
-    document.getElementById("settings-menu").classList.remove("w3-blue");
-    document.getElementById("logout-menu").classList.remove("w3-blue");
-    ctrl.classList.add("w3-blue");
-    if(tabName !== ''){
-        document.getElementsByClassName('payments-tab')[0].style.display = "none";
-        document.getElementsByClassName('buy-currency-tab')[0].style.display = "none";
-        document.getElementsByClassName('settings-tab')[0].style.display = "none";
-        document.getElementsByClassName(tabName)[0].style.display = "block";
-    }
-
-}
 var mySidebar = document.getElementById("mySidebar");
 
 // Get the DIV with overlay effect

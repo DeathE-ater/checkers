@@ -7,7 +7,7 @@
                 <img src="{{url('/images/avatar.png')}}" class="w3-circle w3-margin-right" style="width:60px">
             </div>
             <div class="w3-col s9 w3-bar">
-                <h5><span>Welcome, <strong>Mike Bird</strong></span></h5><br>
+                <h5 style="margin-top: 20px;"><span>Welcome, <strong>{{ Auth::user()->first_name }}</strong></span></h5><br>
             </div>
         </div>
         <hr>
@@ -26,9 +26,6 @@
     <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
         <!-- Header -->
-        <header class="w3-container" style="padding-top:22px">
-            <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
-        </header>
 
         <div class="w3-panel buy-currency-tab">
             <div class="w3-row-padding" style="margin:0 -16px">

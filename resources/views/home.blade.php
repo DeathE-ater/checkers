@@ -8,7 +8,7 @@
             <img src="{{url('/images/avatar.png')}}" class="w3-circle w3-margin-right" style="width:60px">
         </div>
         <div class="w3-col s9 w3-bar">
-            <h5><span>Welcome, <strong>Mike Bird</strong></span></h5><br>
+            <h5 style="margin-top: 20px;"><span>Welcome, <strong>{{ Auth::user()->first_name }}</strong></span></h5><br>
         </div>
     </div>
     <hr>
@@ -17,9 +17,9 @@
     </div>
     <div class="w3-bar-block">
         <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-        <a href="{{ route('home') }}" class="w3-bar-item w3-button w3-padding w3-blue" id="payments-menu" onclick="openTab(this,'payments-tab');"><i class="fa fa-diamond fa-fw"></i>  Payments</a>
-        <a href="{{ route('currency') }}" class="w3-bar-item w3-button w3-padding" id="buy-currency-menu" onclick="openTab(this, 'buy-currency-tab');"><i class="fa fa-bank fa-fw"></i>  Buy Currency</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding" id="settings-menu" onclick="openTab(this, 'settings-tab');"><i class="fa fa-cog fa-fw"></i>  Settings</a>
+        <a href="{{ route('home') }}" class="w3-bar-item w3-button w3-padding w3-blue" id="payments-menu" ><i class="fa fa-diamond fa-fw"></i>  Payments</a>
+        <a href="{{ route('currency') }}" class="w3-bar-item w3-button w3-padding" id="buy-currency-menu" ><i class="fa fa-bank fa-fw"></i>  Buy Currency</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding" id="settings-menu" ><i class="fa fa-cog fa-fw"></i>  Settings</a>
         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="w3-bar-item w3-button w3-padding" id="logout-menu" onclick="openTab(this, '');"><i class="fa fa-sign-out fa-fw"></i>  Logout</a><br><br>
     </div>
 </nav>
@@ -46,217 +46,21 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>12345543</td>
-                        <td>PayPal</td>
-                        <td>$50</td>
-                        <td>6:34 PM</td>
-                        <td>10-11-2020</td>
-                        <td class="amount-processed"><b>Processed</b></td>
-                    </tr>
-                    <tr>
-                        <td>12345543</td>
-                        <td>PayPal</td>
-                        <td>$50</td>
-                        <td>6:34 PM</td>
-                        <td>10-11-2020</td>
-                        <td class="amount-processed"><b>Processed</b></td>
-                    </tr>
-                    <tr>
-                        <td>12345543</td>
-                        <td>PayPal</td>
-                        <td>$50</td>
-                        <td>6:34 PM</td>
-                        <td>10-11-2020</td>
-                        <td class="amount-processed"><b>Processed</b></td>
-                    </tr>
-                    <tr>
-                        <td>12345543</td>
-                        <td>PayPal</td>
-                        <td>$50</td>
-                        <td>6:34 PM</td>
-                        <td>10-11-2020</td>
-                        <td class="amount-processed"><b>Processed</b></td>
-                    </tr>
-                    <tr>
-                        <td>12345543</td>
-                        <td>PayPal</td>
-                        <td>$50</td>
-                        <td>6:34 PM</td>
-                        <td>10-11-2020</td>
-                        <td class="amount-processed"><b>Processed</b></td>
-                    </tr>
-                    <tr>
-                        <td>12345543</td>
-                        <td>PayPal</td>
-                        <td>$50</td>
-                        <td>6:34 PM</td>
-                        <td>10-11-2020</td>
-                        <td class="amount-processed"><b>Processed</b></td>
-                    </tr>
-                    <tr>
-                        <td>12345543</td>
-                        <td>PayPal</td>
-                        <td>$50</td>
-                        <td>6:34 PM</td>
-                        <td>10-11-2020</td>
-                        <td class="amount-processed"><b>Processed</b></td>
-                    </tr>
-                    <tr>
-                        <td>12345543</td>
-                        <td>PayPal</td>
-                        <td>$50</td>
-                        <td>6:34 PM</td>
-                        <td>10-11-2020</td>
-                        <td class="amount-processed"><b>Processed</b></td>
-                    </tr>
-                    <tr>
-                        <td>12345543</td>
-                        <td>PayPal</td>
-                        <td>$50</td>
-                        <td>6:34 PM</td>
-                        <td>10-11-2020</td>
-                        <td class="amount-processed"><b>Processed</b></td>
-                    </tr>
-                    <tr>
-                        <td>12345543</td>
-                        <td>PayPal</td>
-                        <td>$50</td>
-                        <td>6:34 PM</td>
-                        <td>10-11-2020</td>
-                        <td class="amount-processed"><b>Processed</b></td>
-                    </tr>
-                    <tr>
-                        <td>12345543</td>
-                        <td>PayPal</td>
-                        <td>$50</td>
-                        <td>6:34 PM</td>
-                        <td>10-11-2020</td>
-                        <td class="amount-processed"><b>Processed</b></td>
-                    </tr>
-                    <tr>
-                        <td>12345543</td>
-                        <td>PayPal</td>
-                        <td>$50</td>
-                        <td>6:34 PM</td>
-                        <td>10-11-2020</td>
-                        <td class="amount-processed"><b>Processed</b></td>
-                    </tr>
-                    <tr>
-                        <td>12345543</td>
-                        <td>PayPal</td>
-                        <td>$50</td>
-                        <td>6:34 PM</td>
-                        <td>10-11-2020</td>
-                        <td class="amount-processed"><b>Processed</b></td>
-                    </tr>
-                    <tr>
-                        <td>12345543</td>
-                        <td>PayPal</td>
-                        <td>$50</td>
-                        <td>6:34 PM</td>
-                        <td>10-11-2020</td>
-                        <td class="amount-processed"><b>Processed</b></td>
-                    </tr>
-                    <tr>
-                        <td>12345543</td>
-                        <td>PayPal</td>
-                        <td>$50</td>
-                        <td>6:34 PM</td>
-                        <td>10-11-2020</td>
-                        <td class="amount-processed"><b>Processed</b></td>
-                    </tr>
-                    <tr>
-                        <td>12345543</td>
-                        <td>PayPal</td>
-                        <td>$50</td>
-                        <td>6:34 PM</td>
-                        <td>10-11-2020</td>
-                        <td class="amount-processed"><b>Processed</b></td>
-                    </tr>
-                    <tr>
-                        <td>12345543</td>
-                        <td>PayPal</td>
-                        <td>$50</td>
-                        <td>6:34 PM</td>
-                        <td>10-11-2020</td>
-                        <td class="amount-processed"><b>Processed</b></td>
-                    </tr>
-                    <tr>
-                        <td>12345543</td>
-                        <td>PayPal</td>
-                        <td>$50</td>
-                        <td>6:34 PM</td>
-                        <td>10-11-2020</td>
-                        <td class="amount-processed"><b>Processed</b></td>
-                    </tr>
-                    <tr>
-                        <td>12345543</td>
-                        <td>PayPal</td>
-                        <td>$50</td>
-                        <td>6:34 PM</td>
-                        <td>10-11-2020</td>
-                        <td class="amount-processed"><b>Processed</b></td>
-                    </tr>
-                    <tr>
-                        <td>12345543</td>
-                        <td>PayPal</td>
-                        <td>$50</td>
-                        <td>6:34 PM</td>
-                        <td>10-11-2020</td>
-                        <td class="amount-processed"><b>Processed</b></td>
-                    </tr>
-                    <tr>
-                        <td>12345543</td>
-                        <td>PayPal</td>
-                        <td>$50</td>
-                        <td>6:34 PM</td>
-                        <td>10-11-2020</td>
-                        <td class="amount-processed"><b>Processed</b></td>
-                    </tr>
-                    <tr>
-                        <td>12345543</td>
-                        <td>PayPal</td>
-                        <td>$50</td>
-                        <td>6:34 PM</td>
-                        <td>10-11-2020</td>
-                        <td class="amount-processed"><b>Processed</b></td>
-                    </tr>
-                    <tr>
-                        <td>12345543</td>
-                        <td>PayPal</td>
-                        <td>$50</td>
-                        <td>6:34 PM</td>
-                        <td>10-11-2020</td>
-                        <td class="amount-processed"><b>Processed</b></td>
-                    </tr>
-                    <tr>
-                        <td>12345543</td>
-                        <td>PayPal</td>
-                        <td>$50</td>
-                        <td>6:34 PM</td>
-                        <td>10-11-2020</td>
-                        <td class="amount-processed"><b>Processed</b></td>
-                    </tr>
+                        @foreach ($payments as $payment)
+                            <tr>
+                                <td>{{ $payment->payment_id }}</td>
+                                <td>{{ $payment->payment_method }}</td>
+                                <td>{{ $payment->amount }}</td>
+                                <td>{{ date("g:i a", strtotime($payment->payment_time)) }}</td>
+                                <td>{{ $payment->payment_date }}</td>
+                                <td class="{{$payment->status == 'A' ? 'amount-processed' : ''}}">{{ $payment->status == 'L' ? 'Logged': ($payment->status == 'A' ? 'Approved' : '')}}</td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-    <div class="w3-panel buy-currency-tab">
-        <div class="w3-row-padding" style="margin:0 -16px">
-            <div class="w3-card-4 w3-white buy-currency-body">
-                <div class="w3-green" id="buy-currency-success">
-                    <strong>Success!</strong> You have Successfully bought 10 points.
-                </div>
-                <h5><b>Buy Currency</b></h5><br/>
-                Enter Amount:<br/><br/>
-                <input type="text" name="currencyAmount" placeholder="Amount"/>
-                <input type="submit" value="Buy" onclick="buySuccess();">
-            </div>
-        </div>
-    </div>
-
 
     <div class="w3-panel settings-tab">
         <div class="w3-row-padding" style="margin:0 -16px">

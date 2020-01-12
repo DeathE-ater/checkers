@@ -36,12 +36,13 @@ class CurrencyController extends Controller
         $id = Auth::id();
         Payment::create([
             'payment_id' => time(),
+            'payment_method' => 'PayPal',
             'user_id' => $id,
             'amount' => $amount,
         ]);
         $data['result'] = 'success';
         $data['amount'] = $amount;
-        return redirect()->route('currency', $data);
+        return view('currency', $data);
     }
 
 }
