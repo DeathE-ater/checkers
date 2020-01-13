@@ -16,16 +16,9 @@ class CurrencyController extends Controller
     }
 
     public function index(){
-        $data['result'] = 'view';
-        return view('currency', $data);
-    }
-
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'currencyAmount' => ['required', 'numeric'],
-
-        ]);
+        $response['result'] = 'view';
+        $response['tab'] = 'currency';
+        return view('currency', $response);
     }
 
     public function buy(Request $request){
@@ -40,9 +33,10 @@ class CurrencyController extends Controller
             'user_id' => $id,
             'amount' => $amount,
         ]);
-        $data['result'] = 'success';
-        $data['amount'] = $amount;
-        return view('currency', $data);
+        $response['result'] = 'success';
+        $response['amount'] = $amount;
+        $response['tab'] = 'currency';
+        return view('currency', $response);
     }
 
 }

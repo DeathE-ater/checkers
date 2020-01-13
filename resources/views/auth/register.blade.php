@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('auth.userAgreement')
     <div id="signup-box">
         <div class="left signup-left">
             <h1 class="signup-heading">Sign up</h1>
@@ -24,6 +25,12 @@
                     <strong>{{ $message }}</strong>
                 </span>
                 @enderror
+                <input type="tel" id="phoneNumber" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" placeholder="Phone Number" value="{{ old('phone_number') }}" required autocomplete="tel" />
+                @error('phone_number')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
                 <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" name="password" minlength="8" placeholder="Password" required autocomplete="new-password" />
                 @error('password')
                 <span class="invalid-feedback" role="alert">
@@ -32,10 +39,10 @@
                 @enderror
                 <input type="password" id="password-confirm" class="form-control" name="password_confirmation" placeholder="Retype password" minlength="8" required autocomplete="new-password" />
 
-                <input type="checkbox" id="userAgreement" name="userAgreement" required /> I Agree to <a href="#">User Agreement </a>
+                <input type="checkbox" id="userAgreement" name="userAgreement" required /> I Agree to <a href="javascript:void(0)" onclick="openNav()">User Agreement </a>
                 <br/>
 
-                <input type="submit" name="signup_submit" value="Sign me up" />
+                <input type="submit" name="signupSubmit" value="Sign me up" />
             </form>
         </div>
 

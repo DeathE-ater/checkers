@@ -21,4 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/currency', 'CurrencyController@index')->name('currency');
 
-Route::post('/buyCurrency', 'CurrencyController@buy')->name('buyCurrency');
+Route::post('/currency', 'CurrencyController@buy')->name('buyCurrency');
+
+Route::get('/profile', 'ProfileController@viewProfile')->name('viewProfile');
+
+Route::post('/profile', 'ProfileController@updateProfile')->name('updateProfile');

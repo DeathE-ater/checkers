@@ -1,3 +1,10 @@
+function openNav() {
+    document.getElementById("myNav").style.height = "100%";
+}
+
+function closeNav() {
+    document.getElementById("myNav").style.height = "0%";
+}
 
 var mySidebar = document.getElementById("mySidebar");
 
@@ -24,12 +31,3 @@ $(document).ready( function () {
     $('#table_id').DataTable();
 } );
 
-document.getElementById('buy-currency-success').style.display = 'none';
-function buySuccess(){
-    document.getElementById('buy-currency-success').style.display = 'block';
-}
-
-document.getElementById('settings-success').style.display = 'none';
-function saveSuccess(){
-    document.getElementById('settings-success').style.display = 'block';
-}

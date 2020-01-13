@@ -26,6 +26,8 @@ class HomeController extends Controller
     public function index()
     {
         $payments = Payment::where('user_id', Auth::id())->get();
-        return view('home',['payments' => $payments]);
+        $response['payments'] = $payments;
+        $response['tab'] = 'home';
+        return view('home', $response);
     }
 }

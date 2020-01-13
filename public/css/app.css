@@ -11424,7 +11424,8 @@ h1 {
 
 input[type=text],
 input[type=password],
-input[type=email] {
+input[type=email],
+input[type=tel] {
   display: block;
   box-sizing: border-box;
   margin-bottom: 10px;
@@ -11442,7 +11443,8 @@ input[type=email] {
 
 input[type=text]:focus,
 input[type=password]:focus,
-input[type=email]:focus {
+input[type=email]:focus,
+input[type=tel]:focus {
   border-bottom: 2px solid #16a085;
   color: #16a085;
   -webkit-transition: 0.2s ease;
@@ -11559,14 +11561,6 @@ button.social-signin.google {
   color: green;
 }
 
-.payments-tab {
-  display: block;
-}
-
-.settings-tab {
-  display: none;
-}
-
 .buy-currency-body {
   padding: 30px;
 }
@@ -11585,5 +11579,72 @@ button.social-signin.google {
 
 .invalid-feedback {
   font-size: 12px !important;
+}
+
+.profile-alert-container {
+  font-size: 13px !important;
+}
+
+.proflie-error-list {
+  margin-bottom: 0;
+}
+
+.overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: black;
+  background-color: white;
+  overflow-y: scroll;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 10%;
+  width: 100%;
+  padding: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay {
+    overflow-y: auto;
+  }
+
+  .overlay a {
+    font-size: 20px;
+  }
+
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
 }
 
