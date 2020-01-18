@@ -33,7 +33,7 @@
                         </div>
                         <div class="profile-header-container col-md-4">
                             <div class="profile-header-img">
-                                <img class="rounded-circle" src="/storage/avatars/{{ $user->avatar }}"  style="width:150px;"/>
+                                <img class="rounded-circle" src="storage/avatars/{{ $user->avatar }}"  style="width:150px;"/>
                                 @error('avatar')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -44,7 +44,7 @@
 
                     </div>
                     <div class="row justify-content-center">
-                        <form action="/profile" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('updateProfile') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <input type="file" class="form-control-file" name="avatar" id="avatarFile" aria-describedby="fileHelp">

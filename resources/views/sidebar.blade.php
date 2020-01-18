@@ -2,7 +2,7 @@
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;margin-top:43px;" id="mySidebar"><br>
     <div class="w3-container w3-row">
         <div class="w3-col s3">
-            <img src="/storage/avatars/{{ Auth::user()->avatar }}" class="w3-circle w3-margin-right" style="width:60px">
+            <img src="storage/avatars/{{ Auth::user()->avatar }}" class="w3-circle w3-margin-right" style="width:60px">
         </div>
         <div class="w3-col s9 w3-bar">
             <h5 style="margin-top: 20px;"><span>Welcome, <strong>{{ Auth::user()->first_name }}</strong></span></h5><br>

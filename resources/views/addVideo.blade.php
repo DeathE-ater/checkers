@@ -36,11 +36,6 @@
                                 <video width="320" height="240" controls id="addVideo">
                                     <source src="" type="video/mp4">
                                 </video>
-                                @error('mediaVideo')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
                             </div>
                         </div>
 

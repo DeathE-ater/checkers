@@ -34,11 +34,6 @@
                         <div class="">
                             <div class="profile-header-img">
                                 <img id="addPhoto"  style="width:150px;"/>
-                                @error('mediaPhoto')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
                             </div>
                         </div>
 

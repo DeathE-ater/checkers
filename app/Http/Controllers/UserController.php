@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -31,37 +32,37 @@ class UserController extends Controller
         ]);
 
         $user = Auth::user();
-        $oldAvatar = $user->avatar;
-        $oldAvatarThumbnail = $user->avatar_thumbnail;
+        if(request()->avatar != null) {
+            $oldAvatar = $user->avatar;
+            $oldAvatarThumbnail = $user->avatar_thumbnail;
+            $avatarName = $user->id . '_avatar' . time() . '.' . request()->avatar->getClientOriginalExtension();
+            $photoThumbnail = $user->id . '_avatar' . time() . '_thumbnail' . '.' . request()->avatar->getClientOriginalExtension();
+            $request->avatar->storeAs('avatars', $avatarName);
 
-        $avatarName = $user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
-        $photoThumbnail = $user->id.'_avatar'.time() .'_thumbnail' . '.' .request()->avatar->getClientOriginalExtension();
-        $request->avatar->storeAs('avatars',$avatarName);
+            $image = request()->avatar;
+            $image_resize = Image::make($image->getRealPath());
+            $image_resize->resize(100, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
 
-        $image       = request()->avatar;
-        $image_resize = Image::make($image->getRealPath());
-        $image_resize->resize(100, null, function ($constraint) {
-            $constraint->aspectRatio();
-        });
+            $image_resize->save(public_path('storage/thumbnails/' . $photoThumbnail));
+            $user->avatar = $avatarName;
+            $user->avatar_thumbnail = $photoThumbnail;
+            if($oldAvatar != 'avatar.png' && Storage::exists('avatars/' . $oldAvatar) ){
+                Storage::delete('avatars/' . $oldAvatar);
+            }
+            if($oldAvatarThumbnail != 'avatar_thumbnail.png' && Storage::exists('thumbnails/' . $oldAvatarThumbnail) ){
+                Storage::delete('thumbnails/' . $photoThumbnail);
+            }
+        }
 
-        $image_resize->save(public_path('storage/thumbnails/' .$photoThumbnail));
-
-        $user->avatar = $avatarName;
-        $user->avatar_thumbnail = $photoThumbnail;
         $user->first_name = request()->firstName;
         $user->last_name = request()->lastName;
         $user->phone_number = request()->phone_number;
         $user->save();
 
-        if($oldAvatar != 'avatar.png' && Storage::exists('avatars/' . $oldAvatar) ){
-            Storage::delete('avatars/' . $oldAvatar);
-        }
-        if($oldAvatarThumbnail != 'avatar_thumbnail.png' && Storage::exists('thumbnails/' . $oldAvatarThumbnail) ){
-            Storage::delete('thumbnails/' . $photoThumbnail);
-        }
-
         return back()
-            ->with('success','Your Profile has been saved successfully.');
+            ->with('success', 'Your Profile has been saved successfully.');
     }
 
     public function viewUsers(){
