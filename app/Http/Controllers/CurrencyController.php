@@ -16,27 +16,33 @@ class CurrencyController extends Controller
     }
 
     public function index(){
-        $response['result'] = 'view';
-        $response['tab'] = 'currency';
-        return view('currency', $response);
+        if(Auth::user()->user_type == 'C') {
+            $response['result'] = 'view';
+            $response['tab'] = 'currency';
+            return view('currency', $response);
+        }
+        return redirect('manageUsers');
     }
 
     public function buy(Request $request){
-        $validatedData = $request->validate([
-            'currencyAmount' => ['required', 'numeric'],
-        ]);
-        $amount = $validatedData['currencyAmount'];
-        $id = Auth::id();
-        Payment::create([
-            'payment_id' => time(),
-            'payment_method' => 'PayPal',
-            'user_id' => $id,
-            'amount' => $amount,
-        ]);
-        $response['result'] = 'success';
-        $response['amount'] = $amount;
-        $response['tab'] = 'currency';
-        return view('currency', $response);
+        if(Auth::user()->user_type == 'C') {
+            $validatedData = $request->validate([
+                'currencyAmount' => ['required', 'numeric'],
+            ]);
+            $amount = $validatedData['currencyAmount'];
+            $id = Auth::id();
+            Payment::create([
+                'payment_id' => time(),
+                'payment_method' => 'PayPal',
+                'user_id' => $id,
+                'amount' => $amount,
+            ]);
+            $response['result'] = 'success';
+            $response['amount'] = $amount;
+            $response['tab'] = 'currency';
+            return view('currency', $response);
+        }
+        return redirect('manageUsers');
     }
 
 }

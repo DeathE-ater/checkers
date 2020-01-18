@@ -5,7 +5,7 @@
     <div class="w3-main" style="margin-left:300px;margin-top:43px;">
         <div class="w3-panel payments-tab w3-white w3-card-4" style="padding: 45px 40px; margin: 20px 15px;">
             <div class="w3-row-padding" style="margin:0 -16px">
-                <table id="table_id" class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-card-4 w3-white">
+                <table id="table_id" class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-card-4 w3-white display nowrap" style="width:100%">
                     <thead>
                     <tr>
                         <th>Payment ID</th>

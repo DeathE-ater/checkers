@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Laravel\Socialite\Facades\Socialite;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -36,5 +38,51 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function redirectToProvider()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function handleProviderCallback()
+    {
+        try {
+            $user = Socialite::driver('google')->user();
+        } catch (\Exception $e) {
+            return redirect('/login');
+        }        // only allow people with @company.com to login
+        $existingUser = User::where('email', $user->email)->first();
+        if($existingUser){
+            auth()->login($existingUser, true);
+        } else {
+            // create a new user
+            $name = LoginController::split_name($user->name);
+            $newUser                  = new User;
+            $newUser->first_name      = $name[0];
+            $newUser->last_name       = $name[1];
+            $newUser->user_type       = 'C';
+            $newUser->email           = $user->email;
+            $newUser->google_id       = $user->id;
+            $newUser->save();
+            auth()->login($newUser, true);
+        }
+        return redirect()->to('/home');
+    }
+
+    public function split_name($name) {
+        $name = trim($name);
+
+        $parts = explode(" ", $name);
+        if(count($parts) > 1) {
+            $lastname = array_pop($parts);
+            $firstname = implode(" ", $parts);
+        }
+        else
+        {
+            $firstname = $name;
+            $lastname = " ";
+        }
+        return array($firstname, $lastname);
     }
 }

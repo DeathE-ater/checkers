@@ -48,7 +48,7 @@
                             @csrf
                             <div class="form-group">
                                 <input type="file" class="form-control-file" name="avatar" id="avatarFile" aria-describedby="fileHelp">
-                                <small id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of image should not be more than 2MB.</small>
+                                <small id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of image should not be more than 1MB.</small>
                             </div>
 
                             <input type="text" id="firstName" class="form-control @error('firstName') is-invalid @enderror" name="firstName" placeholder="First Name" value="{{ $user->first_name }}" maxlength="30" required autocomplete="given-name" autofocus>
@@ -57,7 +57,7 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                            <input type="text" id="lastName" class="form-control @error('lastName') is-invalid @enderror" name="lastName" placeholder="Last Name" value="{{ $user->lastName }}" maxlength="30" required autocomplete="family-name">
+                            <input type="text" id="lastName" class="form-control @error('lastName') is-invalid @enderror" name="lastName" placeholder="Last Name" value="{{ $user->last_name }}" maxlength="30" required autocomplete="family-name">
                             @error('lastName')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -69,7 +69,7 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                            <input type="tel" id="phone_number" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" placeholder="Phone Number" value="{{ $user->phoneNumber }}" required autocomplete="tel" />
+                            <input type="tel" id="phone_number" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" placeholder="Phone Number" value="{{ $user->phone_number }}" required autocomplete="tel" />
                             @error('phone_number')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

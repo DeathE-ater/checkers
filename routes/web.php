@@ -17,12 +17,43 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/redirect', 'Auth\LoginController@redirectToProvider');
+
+Route::get('/callback', 'Auth\LoginController@handleProviderCallback');
+
+Route::get('/home', 'HomeController@userHome')->name('home');
 
 Route::get('/currency', 'CurrencyController@index')->name('currency');
 
 Route::post('/currency', 'CurrencyController@buy')->name('buyCurrency');
 
-Route::get('/profile', 'ProfileController@viewProfile')->name('viewProfile');
+Route::get('/profile', 'UserController@viewProfile')->name('viewProfile');
 
-Route::post('/profile', 'ProfileController@updateProfile')->name('updateProfile');
+Route::post('/profile', 'UserController@updateProfile')->name('updateProfile');
+
+Route::get('/rates', 'RatesController@viewRates')->name('viewRates');
+
+Route::post('/rates', 'RatesController@updateRates')->name('updateRates');
+
+Route::get('/viewPhotos', 'MediaController@viewPhotos')->name('viewPhotos');
+
+Route::get('/viewVideos', 'MediaController@viewVideos')->name('viewVideos');
+
+Route::get('/addPhoto', 'MediaController@viewAddPhoto')->name('viewAddPhoto');
+
+Route::post('/addPhoto', 'MediaController@addPhoto')->name('addPhoto');
+
+Route::get('/addVideo', 'MediaController@viewAddVideo')->name('viewAddVideo');
+
+Route::post('/addVideo', 'MediaController@addVideo')->name('addVideo');
+
+Route::get('/addMerchandise', 'MerchandiseController@viewAddMerchandise')->name('viewAddMerchandise');
+
+Route::post('/addMerchandise', 'MerchandiseController@addMerchandise')->name('addMerchandise');
+
+Route::get('/viewMerchandise', 'MerchandiseController@viewMerchandise')->name('viewMerchandise');
+
+Route::get('/manageUsers', 'UserController@viewUsers')->name('manageUsers');
+
+Route::post('/verifyUser', 'UserController@verifyUser')->name('verifyUser');
+

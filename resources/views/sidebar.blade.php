@@ -14,8 +14,17 @@
     </div>
     <div class="w3-bar-block">
         <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-        <a href="{{ route('home') }}" class="w3-bar-item w3-button w3-padding @if ($tab == 'home') w3-blue @endif" id="payments-menu" ><i class="fa fa-diamond fa-fw"></i>  Payments</a>
-        <a href="{{ route('currency') }}" class="w3-bar-item w3-button w3-padding @if ($tab == 'currency') w3-blue @endif" id="buy-currency-menu" ><i class="fa fa-bank fa-fw"></i>  Buy Currency</a>
+        @if (Auth::user()->user_type == 'C') <a href="{{ route('home') }}" class="w3-bar-item w3-button w3-padding @if ($tab == 'home') w3-blue @endif" id="payments-menu" ><i class="fa fa-diamond fa-fw"></i>  Payments</a>@endif
+        @if (Auth::user()->user_type == 'C') <a href="{{ route('currency') }}" class="w3-bar-item w3-button w3-padding @if ($tab == 'currency') w3-blue @endif" id="buy-currency-menu" ><i class="fa fa-bank fa-fw"></i>  Buy Currency</a>@endif
+
+        @if (Auth::user()->user_type == 'A')<a href="{{ route('manageUsers') }}" class="w3-bar-item w3-button w3-padding @if ($tab == 'manageUsers') w3-blue @endif" id="settings-menu" ><i class="fa fa-users fa-fw"></i>  Manage Users</a>@endif
+        @if (Auth::user()->user_type == 'A')<a href="{{ route('viewRates') }}" class="w3-bar-item w3-button w3-padding @if ($tab == 'rates') w3-blue @endif" id="rates-menu" ><i class="fa fa-bank fa-fw"></i>  Rates</a>@endif
+        @if (Auth::user()->user_type == 'A')<a href="{{ route('viewAddPhoto') }}" class="w3-bar-item w3-button w3-padding @if ($tab == 'addPhoto') w3-blue @endif" id="settings-menu" ><i class="fa fa-image fa-fw"></i>  Add Photo</a>@endif
+        @if (Auth::user()->user_type == 'A')<a href="{{ route('viewPhotos') }}" class="w3-bar-item w3-button w3-padding @if ($tab == 'viewPhotos') w3-blue @endif" id="settings-menu" ><i class="fa fa-image fa-fw"></i>  View Photos</a>@endif
+        @if (Auth::user()->user_type == 'A')<a href="{{ route('viewAddVideo') }}" class="w3-bar-item w3-button w3-padding @if ($tab == 'addVideo') w3-blue @endif" id="settings-menu" ><i class="fa fa-video fa-fw"></i>  Add Video</a>@endif
+        @if (Auth::user()->user_type == 'A')<a href="{{ route('viewVideos') }}" class="w3-bar-item w3-button w3-padding @if ($tab == 'viewVideos') w3-blue @endif" id="settings-menu" ><i class="fa fa-video fa-fw"></i>  View Videos</a>@endif
+        @if (Auth::user()->user_type == 'A')<a href="{{ route('viewAddMerchandise') }}" class="w3-bar-item w3-button w3-padding @if ($tab == 'addMerchandise') w3-blue @endif" id="settings-menu" ><i class="fa fa-tshirt fa-fw"></i>  Add Merchandise</a>@endif
+        @if (Auth::user()->user_type == 'A')<a href="{{ route('viewMerchandise') }}" class="w3-bar-item w3-button w3-padding @if ($tab == 'viewMerchandise') w3-blue @endif" id="settings-menu" ><i class="fa fa-tshirt fa-fw"></i>  View Merchandise</a>@endif
         <a href="{{ route('viewProfile') }}" class="w3-bar-item w3-button w3-padding @if ($tab == 'profile') w3-blue @endif" id="settings-menu" ><i class="fa fa-cog fa-fw"></i>  Settings</a>
         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="w3-bar-item w3-button w3-padding" id="logout-menu" onclick="openTab(this, '');"><i class="fa fa-sign-out fa-fw"></i>  Logout</a><br><br>
     </div>

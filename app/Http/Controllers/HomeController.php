@@ -25,9 +25,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $payments = Payment::where('user_id', Auth::id())->get();
-        $response['payments'] = $payments;
-        $response['tab'] = 'home';
-        return view('home', $response);
+            return view('home');
+
+    }
+    public function userHome()
+    {
+        if(Auth::user()->user_type == 'C') {
+            $payments = Payment::where('user_id', Auth::id())->get();
+            $response['payments'] = $payments;
+            $response['tab'] = 'home';
+            return view('home', $response);
+        }
+        return redirect('manageUsers');
     }
 }

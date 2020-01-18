@@ -36,7 +36,7 @@
             <span class="loginwith">Login with<br />social network</span>
 
             <button class="social-signin facebook">Log in with facebook</button>
-            <button class="social-signin google">Log in with Google+</button>
+            <a href="/redirect"><button class="social-signin google">Log in with Google+</button></a>
         </div>
         <div class="or">OR</div>
     </div>
