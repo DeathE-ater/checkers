@@ -41,7 +41,7 @@
 
                     </div>
                     <div class="row justify-content-center">
-                        <form action="/addVideo" method="post" enctype="multipart/form-data" >
+                        <form action="{{ route('addVideo') }}" method="post" enctype="multipart/form-data" >
                             @csrf
                             <div class="form-group">
                                 <input type="file" class="form-control-file" name="mediaVideo" id="mediaVideo" aria-describedby="fileHelp">

@@ -39,7 +39,7 @@
 
                     </div>
                     <div class="row justify-content-center">
-                        <form action="/addMerchandise" method="post" enctype="multipart/form-data" >
+                        <form action="{{ route('addMerchandise') }}" method="post" enctype="multipart/form-data" >
                             @csrf
                             <div class="form-group">
                                 <input type="file" class="form-control-file" name="merchandisePhoto" id="merchandisePhoto" aria-describedby="fileHelp">
