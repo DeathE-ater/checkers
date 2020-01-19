@@ -10,7 +10,7 @@
                         @foreach($photos as $photo)
                             <div class="col-md-2" style="margin-bottom: 30px;">
                                 <p style="font-size: 13px; padding-top: 20px;"><strong>{{ $photo->file_name }}</strong></p>
-                                <a href="storage/photos/{{ $photo->file_url }}" target="_blank"> <img src="storage/thumbnails/{{ $photo->file_thumbnail }}"  /></a>
+                                <a href="storage/app/public/photos/{{ $photo->file_url }}" target="_blank"> <img src="storage/thumbnails/{{ $photo->file_thumbnail }}"  /></a>
                             </div>
                         @endforeach
                     </div>

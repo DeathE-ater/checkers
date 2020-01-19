@@ -26,8 +26,10 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js" defer></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/rowreorder/1.2.6/js/dataTables.rowReorder.min.js" defer></script>
     <!-- Styles -->
+    <script> let rootPath = '{{ url('/') }}';</script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="{{ asset('js/custom.js') }}" defer></script>
+
 </head>
 <body>
     <div id="app">

@@ -19,7 +19,7 @@
                     <tbody>
                         @foreach ($users as $user)
                             <tr>
-                                <td><a href="storage/avatars/{{$user->avatar}}" target="_blank"> <img src="storage/thumbnails/{{$user->avatar_thumbnail}}" width="50px"/></a></td>
+                                <td><a href="storage/app/public/avatars/{{$user->avatar}}" target="_blank"> <img src="storage/thumbnails/{{$user->avatar_thumbnail}}" width="50px"/></a></td>
                                 <td>{{ $user->first_name }} {{ $user->last_name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->phone_number }}</td>

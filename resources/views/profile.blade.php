@@ -33,7 +33,7 @@
                         </div>
                         <div class="profile-header-container col-md-4">
                             <div class="profile-header-img">
-                                <img class="rounded-circle" src="storage/avatars/{{ $user->avatar }}"  style="width:150px;"/>
+                                <img class="rounded-circle" src="storage/app/public/avatars/{{ $user->avatar }}"  style="width:150px;"/>
                                 @error('avatar')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

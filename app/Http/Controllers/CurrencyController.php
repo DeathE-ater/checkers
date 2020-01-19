@@ -27,7 +27,7 @@ class CurrencyController extends Controller
     public function buy(Request $request){
         if(Auth::user()->user_type == 'C') {
             $validatedData = $request->validate([
-                'currencyAmount' => ['required', 'numeric'],
+                'currencyAmount' => ['required', 'numeric', 'min:1'],
             ]);
             $amount = $validatedData['currencyAmount'];
             $id = Auth::id();

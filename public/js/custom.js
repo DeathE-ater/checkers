@@ -74,7 +74,7 @@ function verifyUser(id, ctrl) {
     } else {
         verified = 'N'
     }
-    $.post( "/verifyUser", { id: id, verified: verified })
+    $.post( rootPath + "verifyUser", { id: id, verified: verified })
         .done(function( data ) {
         });
 }

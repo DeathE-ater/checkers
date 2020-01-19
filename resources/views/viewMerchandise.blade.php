@@ -11,7 +11,7 @@
                             <div class="col-md-2" style="margin-bottom: 30px;">
                                 <p style="font-size: 16px; padding-top: 20px; margin-bottom: 0px;"><strong>{{ $merchandise->file_name }}</strong></p>
                                 <p style="font-size: 13px;"><strong>{{ $merchandise->amount }} RM</strong></p>
-                                <a href="storage/merchandise/{{ $merchandise->file_url }}" target="_blank"> <img src="storage/thumbnails/{{ $merchandise->file_thumbnail }}"  /></a>
+                                <a href="storage/app/public/merchandise/{{ $merchandise->file_url }}" target="_blank"> <img src="storage/thumbnails/{{ $merchandise->file_thumbnail }}"  /></a>
                             </div>
                         @endforeach
                     </div>

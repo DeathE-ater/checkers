@@ -11,7 +11,7 @@
                             <div class="col-md-4" style="margin-bottom: 30px;">
                                 <p style="font-size: 16px; padding-top: 20px;"><strong>{{ $video->file_name }}</strong></p>
                                 <video width="220" controls id="addVideo">
-                                    <source src="storage/videos/{{ $video->file_url }}" type="video/mp4">
+                                    <source src="storage/app/public/videos/{{ $video->file_url }}" type="video/mp4">
                                 </video>
                             </div>
                         @endforeach

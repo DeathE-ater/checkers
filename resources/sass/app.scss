@@ -49,17 +49,14 @@ body {
 }
 
 .left {
-    position: absolute;
-    top: 15px;
-    left: 0;
+
     box-sizing: border-box;
-    padding: 40px;
-    width: 300px;
-    height: 400px;
+    padding: 60px;
+    height: 475px;
 }
 
 .signup-left {
-    top: 0px !important;
+    height: 530px !important;
 }
 
 .login-heading{
@@ -141,18 +138,11 @@ input[type="submit"]:active {
 }
 
 .right {
-    position: absolute;
-    top: 0;
-    right: 0;
     box-sizing: border-box;
     padding: 40px;
-    width: 300px;
     height: 475px;
-    //background: url('signup-background.jpeg');
-    background: url('/images/signup-background.jpeg');
-    background-size: cover;
-    background-position: center;
     border-radius: 0 2px 2px 0;
+    margin-bottom: 50px;
 }
 
 .signup-right {
@@ -170,8 +160,8 @@ input[type="submit"]:active {
 
 button.social-signin {
     margin-bottom: 30px;
-    width: 220px;
-    height: 36px;
+    width: 85%;
+    height: auto;
     border: none;
     border-radius: 2px;
     color: #FFF;
@@ -179,6 +169,10 @@ button.social-signin {
     font-weight: 500;
     transition: 0.2s ease;
     cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3% 7%;
 }
 
 button.social-signin:hover,
